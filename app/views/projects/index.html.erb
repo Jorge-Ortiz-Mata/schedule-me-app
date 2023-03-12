@@ -1,14 +1,18 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+<main class="h-[700px] flex w-full">
+  <section class="flex flex-col overflow-y-auto w-9/12 p-5">
+    <h2 class="w-full text-2xl text-white font-bold">Your projects</h2>
+    <% Project.all.order(:created_at).each do |project| %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Projects</h1>
-    <%= link_to 'New project', new_project_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
+    <% end %>
+  </section>
+  <section class="flex flex-col overflow-y-auto w-3/12 p-5 gap-5">
+    <h2 class="w-full text-2xl text-white font-bold">All users</h2>
+    <div class="flex flex-col gap-5">
+      <% User.all.order(:created_at).each do |user| %>
+        <% next if user.profile.nil? %>
 
-  <div id="projects" class="min-w-full">
-    <%= render @projects %>
-  </div>
-</div>
+        <%= render 'users/user', user: user %>
+      <% end %>
+    </div>
+  </section>
+</main>

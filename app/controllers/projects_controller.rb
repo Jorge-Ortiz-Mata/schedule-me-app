@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ProjectsController < AuthenticateController
   before_action :set_project, only: %i[ show edit update destroy ]
 
   def index
