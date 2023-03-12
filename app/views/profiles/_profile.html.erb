@@ -1,0 +1,68 @@
+<section class="border rounded flex my-10 mx-20 gap-5">
+  <div class="flex w-1/6 gap-1 items-center justify-center">
+    <% if user.profile.avatar.attached? %>
+      <%= image_tag(user.profile.avatar, class: 'object-cover h-full rounded-l') %>
+    <% else %>
+      <i class="fa-solid fa-user text-white text-8xl"></i>
+    <% end %>
+  </div>
+
+  <div class="flex flex-col w-5/6 gap-2 py-3">
+
+    <div class="flex w-full gap-2">
+      <span class="text-white font-bold text-2xl">
+        <%= user.profile.first_name %>
+        <%= user.profile.last_name %>
+      </span>
+    </div>
+
+    <div class="flex w-full gap-2">
+      <strong class="text-white font-semibold text-base">Email:</strong>
+      <span class="text-white font-bold">
+        <%= user.email %>
+      </span>
+    </div>
+
+    <div class="flex w-full gap-2">
+      <strong class="text-white font-semibold text-base">Birth:</strong>
+      <span class="text-white font-bold">
+        <%= user.profile.birth %>
+      </span>
+    </div>
+
+    <div class="flex w-full gap-2">
+      <strong class="text-white font-semibold text-base">Phone:</strong>
+      <span class="text-white font-bold">
+        <%= user.profile.phone %>
+      </span>
+    </div>
+
+    <div class="flex w-full gap-2">
+      <strong class="text-white font-semibold text-base">Country:</strong>
+      <span class="text-white font-bold">
+        <%= user.profile.country %>
+      </span>
+    </div>
+
+    <div class="flex w-full gap-2">
+      <strong class="text-white font-semibold text-base">Role:</strong>
+      <span class="text-white font-bold">
+        <%= user.profile.role.humanize %>
+      </span>
+    </div>
+
+    <div class="flex items-center gap-2 mt-5">
+      <%= link_to edit_user_profile_path(user.token_id, user.profile.id), id: 'edit_profile_link' do %>
+        <span class="bg-loginBtn rounded text-sm font-semibold text-white px-4 py-2">
+          Edit Profile
+        </span>
+      <% end %>
+
+      <span class="bg-secondaryColor rounded text-sm font-semibold text-white px-4 py-2">
+        <%= link_to edit_user_path(user.token_id), id: 'edit_user' do %>
+          Edit Account
+        <% end %>
+      </span>
+    </div>
+  </div>
+</section>

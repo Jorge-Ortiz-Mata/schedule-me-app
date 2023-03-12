@@ -1,0 +1,12 @@
+<div class="absolute bg-redBtn rounded p-5 z-10 top-10 w-[500px]" id="errors-div">
+  <div class="flex items-center justify-between" data-controller="errors">
+    <h4 class="text-white font-bold text-xl"><%= errors.count %> error(s) have ocurred.</h4>
+    <i class="fa-solid fa-xmark text-lg cursor-pointer text-white" data-action="click->errors#close"></i>
+  </div>
+
+  <ul class="flex flex-col gap-2 mt-5">
+  <% errors.each do |error| %>
+    <li class="text-white font-semibold">- <%= error.full_message %></li>
+  <% end %>
+</ul>
+</div>

@@ -1,0 +1,11 @@
+<main class="flex border-2 border-secondaryColor rounded-lg my-20 mx-40 shadow-xl h-[600px]">
+  <section class="w-full flex flex-row-reverse">
+    <div class="w-5/12 flex flex-col">
+      <%= image_tag('come-on.jpg', class: ' h-full w-full object-cover rounded-l-lg') %>
+    </div>
+
+    <div class="w-7/12 flex flex-col items-center justify-center">
+      <%= render 'form', { user: @user, text_btn: 'Sign Up', url: users_path, authorize: false } %>
+    </div>
+  </section>
+</main>

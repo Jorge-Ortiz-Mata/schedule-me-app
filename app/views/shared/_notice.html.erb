@@ -1,0 +1,13 @@
+<% if notice %>
+  <div class="absolute z-10 w-full px-10 py-4 items-center top-20" id="notice-div">
+    <div class="text-white bg-redBtn rounded font-semibold text-sm w-full py-2 px-5 flex items-center justify-between">
+      <div class="flex">
+        <%= notice %>
+      </div>
+
+      <div class="flex items-center" data-controller="notice">
+        <i class="fa-solid fa-xmark text-lg cursor-pointer" data-action="click->notice#close"></i>
+      </div>
+    </div>
+  </div>
+<% end %>

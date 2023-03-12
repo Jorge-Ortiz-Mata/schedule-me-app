@@ -1,0 +1,44 @@
+<%= form_with(model: [@user, profile], url: url, class: "flex flex-col w-full p-5") do |form| %>
+  <%= render 'shared/errors', errors: profile.errors if profile.errors.any? %>
+
+  <div class="flex gap-1 w-full">
+    <div class="flex flex-col mt-5 gap-1 w-full">
+      <%= form.label :first_name, class:'font-bold text-white' %>
+      <%= form.text_field :first_name, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+    </div>
+
+    <div class="flex flex-col mt-5 gap-1 w-full">
+      <%= form.label :last_name, class:'font-bold text-white' %>
+      <%= form.text_field :last_name, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+    </div>
+  </div>
+
+  <div class="flex gap-1 w-full">
+    <div class="flex flex-col mt-5 gap-1 w-2/6">
+      <%= form.label :birth, class:'font-bold text-white' %>
+      <%= form.date_field :birth, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+    </div>
+
+    <div class="flex flex-col mt-5 gap-1 w-2/6">
+      <%= form.label :phone, class:'font-bold text-white' %>
+      <%= form.text_field :phone, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+    </div>
+
+    <div class="flex flex-col mt-5 gap-1 w-2/6">
+      <%= form.label :country, class:'font-bold text-white' %>
+      <%= form.text_field :country, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-1 w-full mt-4">
+    <%= form.label :avatar, class:'font-bold text-white' %>
+    <%= form.file_field :avatar, class:'text-white font-semibold rounded-lg text-sm w-full' %>
+  </div>
+
+
+  <div class="flex items-center justify-center mt-10">
+    <span class="bg-greenBtn rounded-lg">
+      <%= form.submit class: 'py-2 px-4 cursor-pointer rounded-lg text-white font-semibold' %>
+    </span>
+  </div>
+<% end %>

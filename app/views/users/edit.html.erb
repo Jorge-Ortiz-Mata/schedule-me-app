@@ -1,0 +1,18 @@
+<main class="flex flex-col p-10 w-full">
+  <div class="flex flex-col w-full mt-10">
+    <%= render 'form', {
+      user: @user,
+      text_btn: 'Update account',
+      url: update_user_path(@user.token_id),
+      authorize: true
+    } %>
+  </div>
+  <div class="flex flex-col w-full rounded mt-10 justify-center items-center">
+    <p class="text-redBtn p-5 rounded font-bold text-xl">Cancel my account</p>
+    <span class="bg-redBtn rounded-lg">
+      <%= button_to destroy_user_path, method: :delete, class: 'text-white px-4 py-2 rounded font-semibold', id: 'cancel_account', form: { data: { turbo_confirm: '¿Estás seguro de inhabilitar este registro?' } } do %>
+        Cancel Account
+      <% end %>
+    </span>
+  </div>
+</main>

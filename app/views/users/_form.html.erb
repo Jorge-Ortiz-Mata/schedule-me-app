@@ -1,0 +1,42 @@
+<div class="flex flex-col w-full gap-5">
+  <h2 class="text-center font-bold text-white text-3xl"><%= text_btn %></h2>
+  <%= form_with(model: user, id: 'user_form', url: url, class: 'flex flex-col w-full px-40') do |form| %>
+    <%= render 'shared/errors', errors: user.errors if user.errors.any? %>
+
+    <div class="flex flex-col mt-4 gap-1">
+      <%= form.label :email, 'Email:', class:'font-bold text-white' %>
+      <%= form.email_field :email, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+    </div>
+
+      <div class="flex flex-col mt-4 gap-1">
+      <%= form.label :password, 'New password:', class:'font-bold text-white' %>
+      <%= form.password_field :password, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+      <span class="text-sm font-semibold text-white">Your password should have at least 8 characters</span>
+    </div>
+
+      <div class="flex flex-col mt-4 gap-1">
+      <%= form.label :password_confirmation, 'Password Confirmation:', class:'font-bold text-white' %>
+      <%= form.password_field :password_confirmation, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+    </div>
+
+    <% if authorize %>
+      <div class="flex flex-col mt-4 gap-1">
+        <%= form.label :old_password, 'Please type your old password to change your account:', class:'font-bold text-white' %>
+        <%= form.password_field :old_password , class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
+      </div>
+    <% end %>
+
+    <div class="flex items-center justify-center mt-10">
+      <span class="bg-greenBtn rounded-lg">
+        <%= form.submit text_btn, class: 'py-2 px-4 cursor-pointer rounded-lg text-white font-semibold' %>
+      </span>
+    </div>
+  <% end %>
+
+  <div class="flex flex-col gap-1 w-full justify-center items-center">
+    <p class="font-semibold text-white">You have an account?</p>
+    <%= link_to login_path,id: 'signup_link' do %>
+      <span class="underline text-white font-semibold">You can login by clicking on this link</span>
+    <% end %>
+  </div>
+</div>

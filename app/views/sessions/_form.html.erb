@@ -1,0 +1,27 @@
+<div class="flex flex-col w-full gap-5">
+  <h2 class="text-center font-bold text-white text-3xl">Login</h2>
+  <%= form_with(scope: :session, url: login_path, id: 'session_form', class: 'flex flex-col w-full px-40') do |form| %>
+    <div class="flex flex-col mt-5 gap-1">
+      <%= form.label :email, 'Email', class:'font-bold text-white' %>
+      <%= form.email_field :email, class:'text-black font-semibold rounded-lg p-2 text-sm' %>
+    </div>
+
+    <div class="flex flex-col mt-5 gap-1">
+      <%= form.label :password, 'Password', class:'font-bold text-white' %>
+      <%= form.password_field :password, class:'text-black font-semibold rounded-lg p-2 text-sm' %>
+    </div>
+
+    <div class="flex items-center justify-center mt-10">
+      <span class="bg-greenBtn rounded-lg">
+        <%= form.submit 'Login', class: 'py-2 px-4 cursor-pointer rounded-lg text-white font-semibold' %>
+      </span>
+    </div>
+  <% end %>
+
+  <div class="flex flex-col gap-1 w-full justify-center items-center">
+    <p class="font-semibold text-white">Create your account for free</p>
+    <%= link_to signup_path,id: 'signup_link' do %>
+      <span class="underline text-white font-semibold">Create a new account</span>
+    <% end %>
+  </div>
+</div>

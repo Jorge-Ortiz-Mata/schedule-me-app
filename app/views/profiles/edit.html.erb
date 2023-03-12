@@ -1,0 +1,12 @@
+<main class="flex border-2 border-secondaryColor rounded-lg my-20 mx-40 shadow-xl h-[550px]">
+  <section class="w-full flex">
+    <div class="w-5/12 flex flex-col">
+      <%= image_tag('profile.jpg', class: ' h-full w-full object-cover rounded-l-lg') %>
+    </div>
+
+    <div class="w-7/12 flex flex-col items-center justify-center">
+      <h1 class="font-bold text-4xl text-white">Update profile</h1>
+      <%= render "form", { url: user_profile_path(@user.token_id, @profile), profile: @profile } %>
+    </div>
+  </section>
+</main>
