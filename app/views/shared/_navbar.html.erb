@@ -9,6 +9,14 @@
 
   <% if current_user %>
     <ul class="flex items-center gap-10">
+      <% if current_user.profile.manager? %>
+        <li class="font-semibold text-white text rounded">
+          <%= link_to new_project_path, id: 'new_project_path' do %>
+            Create project
+          <% end %>
+        </li>
+      <% end %>
+
       <li class="font-semibold text-white text rounded">
         <%= button_to user_path(current_user.token_id), method: :get, id: 'show_user' do %>
           Profile

@@ -1,17 +1,18 @@
-<div id="<%= dom_id project %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= project.title %>
-  </p>
+<div id="<%= dom_id project %>" class="flex flex-col w-full gap-3 py-5">
+  <div class="flex items-center w-full justify-between">
+    <div class="flex flex-col justify-center text-white">
+      <strong class="block font-medium">Title:</strong>
+      <%= project.title %>
+    </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= project.description %>
-  </p>
+    <div class="flex items-center justify-end">
+      <%= link_to "See project", project, class: "text-sm font-semibold text-white rounded-lg py-2 px-4 bg-secondaryColor" %>
+    </div>
+  </div>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this project", project, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this project', edit_project_path(project), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div class="flex flex-col justify-center text-white">
+    <strong class="block font-medium">Description:</strong>
+    <%= project.description[0...300]... %>
+  </div>
 </div>
+<hr class="mt-6">

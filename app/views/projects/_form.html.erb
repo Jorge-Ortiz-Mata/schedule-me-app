@@ -1,27 +1,19 @@
 <%= form_with(model: project, class: "contents") do |form| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+  <%= render 'shared/errors', errors: project.errors if project.errors.any? %>
 
-      <ul>
-        <% project.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="flex flex-col mt-5 gap-1 w-full">
+    <%= form.label :title, class:'font-bold text-white' %>
+    <%= form.text_field :title, class:'text-black font-semibold rounded-lg p-2 text-sm w-full' %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_field :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="flex flex-col mt-5 gap-1 w-full">
+    <%= form.label :description, class:'font-bold text-white' %>
+    <%= form.text_area :description, class:'text-black font-semibold rounded-lg p-2 text-sm w-full h-40' %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="flex items-center justify-center mt-10">
+    <span class="bg-greenBtn rounded-lg">
+      <%= form.submit class: 'py-2 px-4 cursor-pointer rounded-lg text-white font-semibold' %>
+    </span>
   </div>
 <% end %>

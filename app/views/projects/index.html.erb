@@ -2,7 +2,7 @@
   <section class="flex flex-col overflow-y-auto w-9/12 p-5">
     <h2 class="w-full text-2xl text-white font-bold">Your projects</h2>
     <% Project.all.order(:created_at).each do |project| %>
-
+      <%= render 'projects/project', project: project %>
     <% end %>
   </section>
   <section class="flex flex-col overflow-y-auto w-3/12 p-5 gap-5">
