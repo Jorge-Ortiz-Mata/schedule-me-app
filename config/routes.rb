@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    post '/add/user', to: 'projects#add_user', on: :member
+  end
   # User Authentication routes.
   resources :users, only: %i[create] do
     resources :profiles

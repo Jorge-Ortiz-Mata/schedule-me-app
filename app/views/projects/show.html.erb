@@ -1,4 +1,4 @@
-<main>
+<main class="h-[700px] flex w-full">
   <section class="flex flex-col overflow-y-auto w-9/12 p-5 gap-5">
     <h2 class="w-full text-2xl text-white font-bold">
       <%= @project.title %>
@@ -13,6 +13,35 @@
         <span class="text-sm font-semibold text-white rounded-lg py-2 px-4 bg-redBtn">
           Delete
         </span>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="flex flex-col overflow-y-auto w-3/12 p-5 gap-5">
+    <h2 class="w-full text-2xl text-white font-bold">All users</h2>
+    <div class="flex flex-col gap-5">
+      <% User.all.order(:created_at).each do |user| %>
+        <% next if user.profile.nil? || @project.users.include?(user) %>
+
+        <div class="border rounded flex items-center gap-5">
+          <div class="flex flex-col w-3/12">
+            <% if user.profile.avatar.attached? %>
+              <%= image_tag(user.profile.avatar, class: 'object-cover h-20 rounded-l') %>
+            <% else %>
+              <i class="fa-solid fa-user text-white text-8xl"></i>
+            <% end %>
+          </div>
+          <div class="flex flex-col w-9/12 gap-2">
+            <span class="font-bold text-white">
+              <%= user.profile.first_name %> <%= user.profile.last_name %>
+            </span>
+            <%= button_to add_user_project_path(@project, user_id: user), method: :post do %>
+              <span class="text-sm font-semibold text-white rounded-lg py-1 px-3 bg-loginBtn">
+                Add user
+              </span>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
   </section>

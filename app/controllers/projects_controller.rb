@@ -1,25 +1,25 @@
 class ProjectsController < AuthenticateController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[show edit update destroy add_user]
+  before_action :set_user, only: %i[add_user]
 
   def index
     @projects = Project.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @project = Project.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
+        current_user.projects << @project
         format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,6 +37,12 @@ class ProjectsController < AuthenticateController
     end
   end
 
+  def add_user
+    @project.users << @user
+
+    redirect_to project_url(@project), notice: "This user was successfully added into this project"
+  end
+
   def destroy
     @project.destroy
 
@@ -49,6 +55,10 @@ class ProjectsController < AuthenticateController
 
   def set_project
     @project = Project.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
   def project_params

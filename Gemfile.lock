@@ -111,6 +111,7 @@ GEM
       sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hirb (0.7.3)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -256,6 +257,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   font-awesome-sass (~> 6.3.0)
+  hirb
   importmap-rails
   jbuilder
   puma (~> 5.0)
