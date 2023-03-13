@@ -33,6 +33,8 @@ gem "font-awesome-sass", "~> 6.3.0"
 
 gem 'cloudinary'
 
+gem 'zoom_rb'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

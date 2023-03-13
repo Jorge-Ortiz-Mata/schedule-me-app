@@ -9,7 +9,7 @@
 
   <% if current_user %>
     <ul class="flex items-center gap-10">
-      <% unless current_user.profile.member? %>
+      <% unless current_user.profile&.member? %>
         <li class="font-semibold text-white text rounded">
           <%= link_to new_project_path, id: 'new_project_path' do %>
             Create project
