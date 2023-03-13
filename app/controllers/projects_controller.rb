@@ -1,5 +1,6 @@
 class ProjectsController < AuthenticateController
   before_action :set_project, only: %i[show edit update destroy add_user]
+  before_action :authorize_user, only: %i[edit update destroy]
   before_action :set_user, only: %i[add_user]
 
   def index
@@ -63,5 +64,9 @@ class ProjectsController < AuthenticateController
 
   def project_params
     params.require(:project).permit(:title, :description)
+  end
+
+  def authorize_user
+    redirect_to project_url(@project), notice: 'You can not perform this action.' if current_user.profile.member?
   end
 end
