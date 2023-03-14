@@ -1,24 +1,12 @@
-# README
+# Schedule Me App - Ruby on Rails 7 with Zoom Integration.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+This is the official repository of the Schedule Me App. This web application allows users to create Zoom Meetings by creating a meeting on each project.
+## Index.
 
-* Ruby version
+1. - [Zoom documentation](./documentation/zoom-docs/zoom.md)
+2. - [Database](./documentation/database/database.md)
 
-* System dependencies
+## Images.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![](./documentation/app.png)
