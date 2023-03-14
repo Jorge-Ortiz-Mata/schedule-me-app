@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :projects do
+    resources :meetings
     post '/add/user', to: 'projects#add_user', on: :member
   end
   # User Authentication routes.

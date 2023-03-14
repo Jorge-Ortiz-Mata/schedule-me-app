@@ -1,0 +1,17 @@
+<div class="flex flex-col w-full">
+  <div class="flex flex-col w-full">
+    <p class="text-white">
+      Meeting: <span class="font-bold"><%= meeting.name %></span>
+    </p>
+    <p class="text-white">
+      Zoom Link: <a href="<%= meeting.meeting_link %>" target="_blank" class="font-bold underline"><%= meeting.meeting_link %></a>
+    </p>
+  </div>
+
+  <div>
+    <p class="text-white">
+      Description: <span class="font-bold"><%= meeting.description %></span>
+    </p>
+  </div>
+</div>
+<hr class="my-2">
